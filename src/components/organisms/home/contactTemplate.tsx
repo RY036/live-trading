@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 interface ContactModalProps {
@@ -7,6 +7,12 @@ interface ContactModalProps {
 
 const ContactTemplate = ({ CloseFunc }: ContactModalProps) => {
   const router = useRouter();
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      // Client-side only code
+    }
+  }, []);
 
   return (
     <div className="flex justify-center items-center fixed inset-0 z-[200] bg-black bg-opacity-50 p-4">
@@ -121,4 +127,3 @@ const ContactTemplate = ({ CloseFunc }: ContactModalProps) => {
 export default ContactTemplate;
 
 
-                

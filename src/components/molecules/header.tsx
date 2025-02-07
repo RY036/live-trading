@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import { scroller } from "react-scroll";
 import { Menu, X } from "lucide-react";
 
-import PerformanceModal from "@/components/organisms/home/performancsModal";
 import ContactTemplate from "../organisms/home/contactTemplate";
 
 interface HeaderProps {
@@ -21,14 +20,6 @@ const Header: React.FC<HeaderProps> = ({ }) => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    if (sessionStorage.getItem("scrollTo")) {
-      const value = sessionStorage.getItem("scrollTo");
-      setActiveLink(value as string);
-      scroller.scrollTo(value as string, { smooth: true, duration: 500 });
-      sessionStorage.removeItem("scrollTo");
-      
-
-    }
     const handleResize = () => {
       setIsMobile(window.innerWidth < 1045);
     };
@@ -38,7 +29,15 @@ const Header: React.FC<HeaderProps> = ({ }) => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
- 
+  useEffect(() => {
+    const storedScrollTo = sessionStorage.getItem("scrollTo");
+    if (storedScrollTo) {
+      setActiveLink(storedScrollTo);
+      scroller.scrollTo(storedScrollTo, { smooth: true, duration: 500 });
+      sessionStorage.removeItem("scrollTo");
+    }
+  }, []);
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -51,22 +50,16 @@ const Header: React.FC<HeaderProps> = ({ }) => {
   const handleNavigation = (section: string) => {
     setActiveLink(section);
     setMenuOpen(false);
-    if (section == "performance") {
+    if (section === "performance") {
       router.push("/performance");
       sessionStorage.setItem("scrollTo", section);
-      console.log("section", section);
-
       return;
     }
     if (window.location.pathname !== "/") {
       sessionStorage.setItem("scrollTo", section);
       router.push("/");
-
-
-    }
-    else {
+    } else {
       scroller.scrollTo(section, { smooth: true, duration: 500 });
-      console.log("section", section);
     }
   };
 
@@ -104,7 +97,7 @@ const Header: React.FC<HeaderProps> = ({ }) => {
                 return (
                   <span
                     key={section}
-                    onClick={() => section != "contact" ? handleNavigation(section) : handleContact()}
+                    onClick={() => section !== "contact" ? handleNavigation(section) : handleContact()}
                     className={`cursor-pointer ${activeLink === section ? "text-green-500" : ""}`}
                   >
                     {label}

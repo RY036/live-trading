@@ -71,7 +71,7 @@ export default function Footer() {
           <div className="border-t border-gray-200 pt-8">
             <div className="flex flex-col items-center justify-between space-y-4 md:flex-row md:space-y-0">
               <p className="text-sm text-[#4B4B4B]">
-                © Algo Atlas Edge, All rights reserved
+              © Algo Atlas Edge, powered by QuantumCona. All rights reserved.
               </p>
               <div className="flex flex-col items-center space-y-2 text-sm text-[#4B4B4B] md:flex-row md:space-x-4 md:space-y-0">
                 {footerLinks.map(({ href, label }) => (
@@ -116,7 +116,7 @@ const socialLinks = [
 ];
 
 const navLinks = [
-  { label: "HOME", section: "trading-ui" },
+  { label: "HOME", section: "home" },
   { label: "FEATURES", section: "features" },
   { label: "PRICING", section: "pricing" },
   { label: "FAQ'S", section: "faq" },
