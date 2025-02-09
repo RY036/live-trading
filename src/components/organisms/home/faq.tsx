@@ -39,69 +39,70 @@ export default function FAQ() {
     setOpenIndex(openIndex === index ? null : index); // Close if already open
   };
 
-  const handleContactModal = () => {  
+  const handleContactModal = () => {
     setIsContactModalOpen((prev) => !prev);
-  } 
+  }
 
   return (
     <>
-    <section
-      className="mt-20 flex max-w-7xl flex-col px-4 max-md:mt-10"
-      aria-labelledby="faq-heading"
-    >
-      <div className="flex max-w-[670px] flex-col">
-        <h2
-          id="faq-heading"
-          className="text-7xl font-light leading-none text-neutral-800 max-md:text-4xl"
-        >
-           FAQ&apos;s
-        </h2>
-        <p className="mt-6 text-2xl text-zinc-600">
-         Got Questions? We&apos;ve Got Answers!
-        </p>
-      </div>
-
-      <div className="mt-16 flex w-full flex-col max-md:mt-10">
-        {faqData.map((faq, index) => (
-          <details
-            key={index}
-            open={openIndex === index}
-            className="flex min-h-[77px] w-full flex-col overflow-hidden border-b border-gray-100 py-5"
+      <section
+        className="mt-20 flex max-w-7xl flex-col px-4 max-md:mt-10"
+        aria-labelledby="faq-heading"
+      >
+        <div className="flex max-w-[670px] flex-col">
+          <h2
+            id="faq-heading"
+            className="text-7xl font-light leading-none text-neutral-800 max-md:text-4xl"
           >
-            <summary
-              onClick={(e) => {
-                e.preventDefault();
-                toggleFAQ(index);
-              }}
-              className="flex cursor-pointer list-none items-center gap-9"
-              role="button"
-              aria-expanded={openIndex === index}
-            >
-              <div className="relative flex h-6 w-6 items-center justify-center overflow-hidden px-1.5 py-3">
-                <div className="absolute h-0.5 w-3.5 bg-neutral-800"></div>
-                <div
-                  className={`absolute h-3.5 w-0.5 bg-neutral-800 ${
-                    openIndex === index ? "hidden" : ""
-                  }`}
-                ></div>
-              </div>
-              <span className="text-xl font-medium leading-9 text-neutral-800">
-                {faq.question}
-              </span>
-            </summary>
-            {openIndex === index && (
-              <div className="mt-5 flex items-start gap-3 pl-16 max-md:pl-5">
-                <div className="w-0.5 self-stretch bg-green-500"></div>
-                <div className="text-lg leading-9 text-neutral-800">
-                  {faq.answer}
-                </div>
-              </div>
-            )}
-          </details>
-        ))}
-      </div>
+            FAQ&apos;s
+          </h2>
+          <p className="mt-6 text-2xl text-zinc-600">
+            Got Questions? We&apos;ve Got Answers!
+          </p>
+        </div>
 
-      <div className="mt-10 flex flex-col items-center justify-center text-center mb-10">
+        <div className="mt-16 flex w-full flex-col max-md:mt-10">
+          {faqData.map((faq, index) => (
+            <details
+              key={index}
+              open={openIndex === index}
+              className="flex min-h-[77px] w-full flex-col overflow-hidden border-b border-gray-100 py-5"
+            >
+              <summary
+                onClick={(e) => {
+                  e.preventDefault();
+                  toggleFAQ(index);
+                }}
+                className="flex cursor-pointer list-none items-center gap-9"
+                role="button"
+                aria-expanded={openIndex === index}
+              >
+                <div className="relative flex h-6 w-6 items-center justify-center overflow-hidden px-1.5 py-3">
+                  <div className="absolute h-0.5 w-3.5 bg-neutral-800"></div>
+                  <div
+                    className={`absolute h-3.5 w-0.5 bg-neutral-800 ${openIndex === index ? "hidden" : ""
+                      }`}
+                  ></div>
+                </div>
+                <span className="text-xl font-medium leading-9 text-neutral-800">
+                  {faq.question}
+                </span>
+              </summary>
+              {openIndex === index && (
+                <div className="mt-5 flex items-start gap-3 pl-16 max-md:pl-5">
+                  <div className="w-0.5 self-stretch bg-green-500"></div>
+                  <div className="text-lg leading-9 text-neutral-800">
+                    {faq.answer}
+                  </div>
+                </div>
+              )}
+            </details>
+          ))}
+        </div>
+
+
+      </section>
+      <div className="mt-10 flex flex-col items-center justify-center  text-center mb-10">
         <p className="text-2xl leading-none text-neutral-800">
           Have More Questions? Feel Free to Reach Out to Us
         </p>
@@ -128,8 +129,7 @@ export default function FAQ() {
           </svg>
         </button>
       </div>
-    </section>
-    {isContactModalOpen && <ContactTemplate CloseFunc={handleContactModal} />}
+      {isContactModalOpen && <ContactTemplate CloseFunc={handleContactModal} />}
 
     </>
   );

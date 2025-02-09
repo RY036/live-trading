@@ -9,7 +9,7 @@ const ContactTemplate = ({ CloseFunc }: ContactModalProps) => {
  
   return (
     <div className="flex justify-center items-center fixed inset-0 z-[200] bg-black bg-opacity-50 p-4">
-      <div className="flex flex-col bg-white px-6 pt-6 pb-8 w-full h-auto max-w-lg md:max-w-3xl lg:max-w-4xl max-h-[90vh] overflow-auto rounded-lg">
+      <div className="flex flex-col bg-white px-6 pt-6 pb-8 w-full h-auto max-w-lg md:max-w-3xl lg:max-w-4xl max-h-[90vh] overflow-auto rounded-lg" >
         <img
           loading="lazy"
           src="https://cdn.builder.io/api/v1/image/assets/TEMP/9e0c5d3e08fe019bf0068deabd5c196a585fe229c603b3ec6e3a7f1ce6fbd25c?placeholderIfAbsent=true&apiKey=d324b045a78e41d09d8faa0621196924"
@@ -63,13 +63,13 @@ const ContactTemplate = ({ CloseFunc }: ContactModalProps) => {
               <div className="mt-6 space-y-4">
                 <div className="flex items-center gap-3">
                   <img className="w-6" src="https://cdn.builder.io/api/v1/image/assets/TEMP/0fdc2f8d4890dbfef38076ec5c418eea0cf5e4835b9d93a4c3fae1115843feff" alt="Email icon" />
-                  <a href="mailto:Algoatlasedge@gmail.com">Algoatlasedge@gmail.com</a>
+                  <a href="mailto:Algoatlasedge@gmail.com">support@algoatlasedge.com</a>
                 </div>
                 
-                <div className="flex items-center gap-3">
+                {/* <div className="flex items-center gap-3">
                   <img className="w-6" src="https://cdn.builder.io/api/v1/image/assets/TEMP/b208d8c3053495c4b50a38a5d83fecc2a7cb9dcfae3aeb1cc1446fbc663112fe" alt="Location icon" />
                   <p>No:01, Dummy St, India</p>
-                </div>
+                </div> */}
                 
               </div>
               <div className=" flex justify-between items-center border-t border-zinc-600 pt-4 mt-20">
