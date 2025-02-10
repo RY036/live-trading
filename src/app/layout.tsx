@@ -8,7 +8,7 @@ import { Suspense } from "react";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export default function RootLayout({
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
   children,
 }: {
   children: React.ReactNode;
