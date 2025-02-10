@@ -14,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <Providers>
-      <ClerkProvider  publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}>
+      <ClerkProvider  >
         <html lang="en">
           <body className={`${inter.variable} font-inter`}>
             <Suspense>
